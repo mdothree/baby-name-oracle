@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Name Oracle - Find Meaningful Names</title>
+    <meta name="description" content="Discover the perfect baby name with meanings, origins, and numerology. Search thousands of names with cultural significance.">
+    
+    <meta property="og:title" content="Baby Name Oracle - Find Meaningful Names">
+    <meta property="og:description" content="Discover the perfect baby name with meanings, origins, and numerology.">
+    <link rel="canonical" href="https://names.mdo3d.com">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23db2777'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='%23fbcfe8'>👶</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>👶 Baby Name Oracle</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#search">Search</a>
+                <a href="#meanings">Meanings</a>
+                <a href="#popular">Popular</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Find a Name with Meaning</h2>
+                <p class="hero-subtitle">Explore thousands of names with cultural heritage and spiritual significance</p>
+                
+                <div class="search-card">
+                    <div class="search-inputs">
+                        <input type="text" id="name-input" placeholder="Enter a name to explore..." maxlength="30">
+                        <select id="gender-select">
+                            <option value="">Any Gender</option>
+                            <option value="boy">Boy</option>
+                            <option value="girl">Girl</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <select id="origin-select">
+                            <option value="">Any Origin</option>
+                            <option value="hebrew">Hebrew</option>
+                            <option value="greek">Greek</option>
+                            <option value="latin">Latin</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="sanskrit">Sanskrit</option>
+                            <option value="celtic">Celtic</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="african">African</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="search-btn">Search Names</button>
+                    
+                    <div class="quick-search">
+                        <span>Popular:</span>
+                        <button class="quick-btn" data-name="Sophia">Sophia</button>
+                        <button class="quick-btn" data-name="Liam">Liam</button>
+                        <button class="quick-btn" data-name="Emma">Emma</button>
+                        <button class="quick-btn" data-name="Noah">Noah</button>
+                        <button class="quick-btn" data-name="Olivia">Olivia</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section" id="results-section" style="display: none;">
+            <div class="container">
+                <div class="name-card" id="name-card">
+                    <div class="name-header">
+                        <h2 id="result-name">Name</h2>
+                        <span class="gender-badge" id="result-gender">Gender</span>
+                    </div>
+                    <p class="origin" id="result-origin">Origin</p>
+                    <p class="meaning" id="result-meaning">Meaning</p>
+                    
+                    <div class="name-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Numerology</span>
+                            <span class="detail-value" id="result-number">#</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Traits</span>
+                            <span class="detail-value" id="result-traits">Traits</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Popularity</span>
+                            <span class="detail-value" id="result-popularity">Rank</span>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-people" id="famous-section" style="display: none;">
+                        <h4>Famous Namesakes</h4>
+                        <div id="famous-list"></div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-secondary" id="share-btn">Share Name</button>
+                    <button class="btn-secondary" id="new-btn">Search Again</button>
+                </div>
+
+                <div class="premium-cta" style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #db2777 0%, #ec4899 100%); border-radius: 12px; text-align: center;">
+                    <h4 style="color: white; margin-bottom: 0.5rem;">👶 Get Full Name Report</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem; font-size: 0.9rem;">Complete numerology analysis, sibling name pairings, and personalized meaning</p>
+                    <a href="https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802" class="btn-primary" style="background: white; color: #db2777; display: inline-block; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Get Full Report - $2.99</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="popular" class="section-light">
+            <div class="container">
+                <h2>Popular Names 2024</h2>
+                <div class="popular-grid">
+                    <div class="popular-column">
+                        <h3>Top Girl Names</h3>
+                        <ul class="popular-list" id="popular-girls"></ul>
+                    </div>
+                    <div class="popular-column">
+                        <h3>Top Boy Names</h3>
+                        <ul class="popular-list" id="popular-boys"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Baby Name Oracle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
