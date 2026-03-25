@@ -44,9 +44,10 @@ export default function Home() {
           <li>Numerology analysis</li>
           <li>Name combinations for siblings</li>
         </ul>
-        <PayButton 
-          priceId="price_babynames_premium" 
-          label="Get Premium Report - $14.99"
+<PayButton 
+          paymentLink="https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802"
+          priceId="price_babynames_basic" 
+          label="Get Premium Names - $2.99"
         />
       </section>
 
