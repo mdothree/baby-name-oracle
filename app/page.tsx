@@ -35,6 +35,27 @@ const NAMES: BabyName[] = [
   { name: 'Theodore', gender: 'boy', origin: 'Greek', meaning: 'Gift of God' },
 ];
 
+// Name matches by prefix (so "a" means names starting with A, not names whose
+// origin merely contains an "a"). Origin and gender match only as whole words
+// ("greek", "hebrew", "boy", "girls"), never as substrings.
+function matchesName(n: BabyName, rawQuery: string): boolean {
+  const q = rawQuery.trim().toLowerCase();
+  if (!q) return true;
+  const name = n.name.toLowerCase();
+  if (name.startsWith(q)) return true;
+  const originWords = n.origin.toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  // Every word must match, so "hebrew girl" narrows rather than widens.
+  return q
+    .split(/[\s,]+/)
+    .filter(Boolean)
+    .every(
+      (w) =>
+        name.startsWith(w) ||
+        (w.length >= 2 &&
+          (originWords.includes(w) || w === n.gender || w === `${n.gender}s`))
+    );
+}
+
 export default function Home() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<BabyName[] | null>(null);
@@ -45,12 +66,7 @@ export default function Home() {
       setResults(NAMES);
       return;
     }
-    const matches = NAMES.filter(
-      (n) =>
-        n.name.toLowerCase().startsWith(q) ||
-        n.origin.toLowerCase().includes(q)
-    );
-    setResults(matches);
+    setResults(NAMES.filter((n) => matchesName(n, q)));
   };
 
   return (
@@ -135,9 +151,6 @@ export default function Home() {
         />
       </section>
 
-      <p style={{ color: '#666', marginTop: '3rem', fontSize: '0.9rem' }}>
-        Deployed via Project HACK
-      </p>
     </main>
   );
 }
