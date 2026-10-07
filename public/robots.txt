@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://names.mdo3d.com/sitemap.xml
