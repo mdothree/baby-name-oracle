@@ -151,6 +151,9 @@ export default function Home() {
         />
       </section>
 
+      <footer style={{ marginTop: '2rem', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
+        <p>For entertainment and reflection purposes.</p>
+      </footer>
     </main>
   );
 }
