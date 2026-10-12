@@ -70,7 +70,8 @@ export default function Home() {
   };
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'system-ui', maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ padding: '2rem', fontFamily: 'system-ui', maxWidth: '800px', margin: '0 auto' }}>
+      <main id="main-content">
       <h1>Baby Name Oracle</h1>
       <p style={{ fontSize: '1.2rem', color: '#666' }}>
         Discover the perfect name for your baby
@@ -150,10 +151,11 @@ export default function Home() {
           label="Get Premium Names - $2.99"
         />
       </section>
+      </main>
 
       <footer style={{ marginTop: '2rem', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
         <p>For entertainment and reflection purposes.</p>
       </footer>
-    </main>
+    </div>
   );
 }
