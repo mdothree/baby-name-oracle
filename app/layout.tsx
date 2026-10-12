@@ -42,6 +42,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
         <style dangerouslySetInnerHTML={{ __html: SKIP_LINK_CSS }} />
+        <script src="/js/consent.js" defer />
       </head>
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>
