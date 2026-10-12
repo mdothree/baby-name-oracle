@@ -26,6 +26,9 @@ export const viewport: Viewport = {
   themeColor: "#db2777",
 }
 
+const SKIP_LINK_CSS =
+  '.skip-link{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 16px;background:#111111;color:#ffffff;font-weight:600;text-decoration:none;border-radius:4px}.skip-link:focus{left:8px;top:8px}'
+
 export default function RootLayout({
   children,
 }: {
@@ -38,8 +41,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
+        <style dangerouslySetInnerHTML={{ __html: SKIP_LINK_CSS }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        {children}
+      </body>
     </html>
   )
 }
