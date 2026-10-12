@@ -1,6 +1,6 @@
 export default function Success() {
   return (
-    <main style={{ padding: '2rem', fontFamily: 'system-ui', textAlign: 'center' }}>
+    <main id="main-content" style={{ padding: '2rem', fontFamily: 'system-ui', textAlign: 'center' }}>
       <h1 style={{ color: '#22c55e' }}>Payment Successful!</h1>
       <p>Thank you for your purchase.</p>
       <p>Your premium name report is being prepared.</p>
