@@ -78,7 +78,7 @@ export default function Home() {
       </p>
 
       <section style={{ marginTop: '2rem', padding: '1.5rem', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
-        <h2>Free Search</h2>
+        <h2>Name Search</h2>
         <p>Search for names by letter or origin:</p>
         <input
           type="text"
@@ -108,7 +108,7 @@ export default function Home() {
             cursor: 'pointer',
           }}
         >
-          Search Free
+          Search Names
         </button>
 
         {results !== null && (
