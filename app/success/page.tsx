@@ -105,7 +105,7 @@ export default function Success() {
                 card you paid with.
               </p>
               <p style={{ marginBottom: 0 }}>
-                Haven&rsquo;t bought a report? <a href="/" style={{ color: '#635bff' }}>See what it includes</a>.
+                Haven&rsquo;t bought a report? <a href="/" style={{ color: '#4f46e5' }}>See what it includes</a>.
               </p>
             </div>
           )}
