@@ -88,11 +88,19 @@ export default function Home() {
           onKeyDown={(e) => {
             if (e.key === 'Enter') runSearch();
           }}
+          aria-label="Search names by letter or origin"
           style={{
-            padding: '10px',
+            padding: '10px 12px',
             width: '100%',
             maxWidth: '300px',
             marginTop: '0.5rem',
+            font: 'inherit',
+            fontSize: '1rem',
+            color: '#222',
+            backgroundColor: '#fff',
+            border: '1px solid #bbb',
+            borderRadius: '6px',
+            boxSizing: 'border-box',
           }}
         />
         <button
@@ -104,8 +112,11 @@ export default function Home() {
             backgroundColor: '#333',
             color: 'white',
             border: 'none',
-            borderRadius: '4px',
+            borderRadius: '6px',
             cursor: 'pointer',
+            font: 'inherit',
+            fontSize: '1rem',
+            fontWeight: 600,
           }}
         >
           Search Names
@@ -124,7 +135,7 @@ export default function Home() {
                     key={n.name}
                     style={{ padding: '0.75rem 1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #eee' }}
                   >
-                    <strong>{n.name}</strong> <span style={{ color: '#888' }}>({n.gender})</span>
+                    <strong>{n.name}</strong> <span style={{ color: '#666' }}>({n.gender})</span>
                     <div style={{ color: '#666', fontSize: '0.9rem' }}>
                       {n.origin} &middot; {n.meaning}
                     </div>
