@@ -175,7 +175,7 @@ export default function Home() {
       </main>
 
       <footer style={{ marginTop: '2rem', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
-        <p>For entertainment and reflection purposes.</p>
+        <p>For reflection and entertainment; not professional advice.</p>
       </footer>
     </div>
   );

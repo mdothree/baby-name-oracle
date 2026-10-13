@@ -185,7 +185,7 @@ export default function Success() {
 
       <style dangerouslySetInnerHTML={{ __html: '@media print{.no-print,.skip-link{display:none!important}}' }} />
       <p style={{ marginTop: '2rem', color: '#555', fontSize: '0.9rem' }}>
-        For entertainment and reflection purposes.
+        For reflection and entertainment; not professional advice.
       </p>
       <a href="/" className="no-print" style={{ display: 'inline-block', marginTop: '1rem', color: '#635bff' }}>
         Return Home
