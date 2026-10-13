@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   ...pageMetadata({
     title: "Baby Names with Meanings — Baby Name Oracle",
-    description: "Search baby names by first letter or origin and see each name's meaning and origin. Unlock a detailed name report with numerology and sibling combinations.",
+    description: "Search baby names by first letter or origin and see each name's meaning and origin. Get a name report with US popularity data, numerology and sibling-name ideas.",
     path: '/',
   }),
 }

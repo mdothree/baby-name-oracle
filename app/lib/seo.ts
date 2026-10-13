@@ -44,7 +44,7 @@ export const JSON_LD = {
       "@id": "https://names.mdo3d.com/#website",
       "url": "https://names.mdo3d.com/",
       "name": "Baby Name Oracle",
-      "description": "Search baby names by first letter or origin and see each name's meaning and origin. Unlock a detailed name report with numerology and sibling combinations.",
+      "description": "Search baby names by first letter or origin and see each name's meaning and origin. Get a name report with US popularity data, numerology and sibling-name ideas.",
       "inLanguage": "en",
       "publisher": {
         "@type": "Organization",
@@ -56,7 +56,7 @@ export const JSON_LD = {
       "@id": "https://names.mdo3d.com/#app",
       "name": "Baby Name Oracle",
       "url": "https://names.mdo3d.com/",
-      "description": "Search baby names by first letter or origin and see each name's meaning and origin. Unlock a detailed name report with numerology and sibling combinations.",
+      "description": "Search baby names by first letter or origin and see each name's meaning and origin. Get a name report with US popularity data, numerology and sibling-name ideas.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": "Any (web browser)",
       "image": "https://names.mdo3d.com/og-image.png",

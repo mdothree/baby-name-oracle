@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import PayButton from './components/PayButton';
+import { LAST_SEARCH_KEY } from './lib/namesApi';
 
 type BabyName = {
   name: string;
@@ -10,8 +11,8 @@ type BabyName = {
   meaning: string;
 };
 
-// Local free dataset so the free search returns real results client-side.
-// Premium (detailed reports, numerology, combinations) stays behind checkout.
+// Curated dataset so the search returns real results client-side. The paid
+// report (SSA popularity, numerology, sibling ideas) comes from the API after checkout.
 const NAMES: BabyName[] = [
   { name: 'Sophia', gender: 'girl', origin: 'Greek', meaning: 'Wisdom' },
   { name: 'Emma', gender: 'girl', origin: 'Germanic', meaning: 'Whole, universal' },
@@ -62,6 +63,12 @@ export default function Home() {
 
   const runSearch = () => {
     const q = query.trim().toLowerCase();
+    try {
+      // The report page pre-fills its name-ideas filters from the last search.
+      window.localStorage.setItem(LAST_SEARCH_KEY, q);
+    } catch {
+      /* storage unavailable */
+    }
     if (!q) {
       setResults(NAMES);
       return;
@@ -149,13 +156,16 @@ export default function Home() {
 
       <section style={{ marginTop: '2rem', padding: '1.5rem', border: '2px solid #635bff', borderRadius: '8px' }}>
         <h2>Premium Name Report</h2>
+        <p>For the name you are considering, the report gives you:</p>
         <ul>
-          <li>Detailed name meanings</li>
-          <li>Name origin & history</li>
-          <li>Popularity rankings</li>
-          <li>Numerology analysis</li>
-          <li>Name combinations for siblings</li>
+          <li>US popularity rank and trend, from US Social Security Administration 2025 birth data</li>
+          <li>Meaning and origin for names in our curated set</li>
+          <li>Numerology: expression, soul urge and personality numbers, for entertainment</li>
+          <li>A sibling check (first letters, endings, rhythm) against your other children&rsquo;s names, plus up to 6 sibling-name suggestions</li>
+          <li>Up to 10 more name ideas that match your search</li>
+          <li>Download as text, or print</li>
         </ul>
+        <p style={{ color: '#555', fontSize: '0.9rem' }}>One purchase covers reports for up to 5 different names. After checkout you build your report on our report page, <a href="/success" style={{ color: '#635bff' }}>names.mdo3d.com/success</a>.</p>
         <PayButton
           paymentLink="https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802"
           priceId="price_babynames_basic"
