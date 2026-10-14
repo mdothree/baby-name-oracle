@@ -176,6 +176,7 @@ export default function Home() {
 
       <footer style={{ marginTop: '2rem', textAlign: 'center', color: '#666', fontSize: '0.9rem' }}>
         <p>For reflection and entertainment; not professional advice.</p>
+        <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refund">Refunds</a> · <a href="/contact">Contact</a></p>
       </footer>
     </div>
   );
