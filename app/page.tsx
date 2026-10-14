@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import PayButton from './components/PayButton';
+import { NAMES_PAYMENT_LINK, NAMES_PRICE_LABEL } from './lib/checkout';
 import { LAST_SEARCH_KEY } from './lib/namesApi';
 
 type BabyName = {
@@ -167,9 +168,8 @@ export default function Home() {
         </ul>
         <p style={{ color: '#555', fontSize: '0.9rem' }}>One purchase covers reports for up to 5 different names. After checkout you build your report on our report page, <a href="/success" style={{ color: '#635bff' }}>names.mdo3d.com/success</a>.</p>
         <PayButton
-          paymentLink="https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802"
-          priceId="price_babynames_basic"
-          label="Get Premium Names - $2.99"
+          paymentLink={NAMES_PAYMENT_LINK}
+          label={`Get Premium Names - ${NAMES_PRICE_LABEL}`}
         />
       </section>
       </main>
