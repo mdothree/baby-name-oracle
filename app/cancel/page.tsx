@@ -1,11 +1,21 @@
+import { SiteHeader, SiteFooter } from '../components/SiteChrome';
+
 export default function Cancel() {
   return (
-    <main id="main-content" style={{ padding: '2rem', fontFamily: 'system-ui', textAlign: 'center' }}>
-      <h1 style={{ color: '#ef4444' }}>Payment Cancelled</h1>
-      <p>Your payment was cancelled.</p>
-      <a href="/" style={{ display: 'inline-block', marginTop: '2rem', color: '#635bff' }}>
-        Try Again
-      </a>
-    </main>
+    <>
+      <SiteHeader />
+      <main id="main-content" className="wrap">
+        <div className="cancel">
+          <p className="label">Checkout</p>
+          <h1>Payment cancelled</h1>
+          <p className="mute">Your payment was cancelled. Nothing was charged.</p>
+          <div className="btnrow" style={{ justifyContent: 'center', marginTop: '28px' }}>
+            <a className="btn" href="/#report">Try again</a>
+            <a className="btn ghost" href="/#search">Back to the name search</a>
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

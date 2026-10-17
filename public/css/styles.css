@@ -156,7 +156,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   text-transform: uppercase;
 }
 
-.origin { color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
+.origin { color: var(--text-muted); font-style: normal; margin-bottom: 1rem; }
 .meaning { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
 
 .name-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }

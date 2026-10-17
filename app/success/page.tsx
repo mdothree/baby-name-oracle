@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import NameReportView from '../components/NameReportView';
+import { SiteHeader, SiteFooter } from '../components/SiteChrome';
 import {
   CURATED_ORIGINS,
   LAST_SEARCH_KEY,
@@ -13,12 +14,6 @@ import {
 } from '../lib/namesApi';
 
 const SESSION_RE = /^cs_(live|test)_[A-Za-z0-9]{10,250}$/;
-
-const field: React.CSSProperties = { display: 'block', width: '100%', maxWidth: '360px', padding: '8px', marginTop: '0.25rem', boxSizing: 'border-box' };
-const label: React.CSSProperties = { display: 'block', marginTop: '0.75rem', fontWeight: 600 };
-const hint: React.CSSProperties = { fontWeight: 400, color: '#555', fontSize: '0.85rem' };
-const btn: React.CSSProperties = { padding: '10px 20px', backgroundColor: '#635bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1rem', fontWeight: 600 };
-const btn2: React.CSSProperties = { ...btn, backgroundColor: '#333', marginRight: '0.5rem' };
 
 export default function Success() {
   const [ready, setReady] = useState(false);
@@ -90,106 +85,119 @@ export default function Success() {
   };
 
   return (
-    <main id="main-content" style={{ padding: '2rem', fontFamily: 'system-ui', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>Your Premium Name Report</h1>
-
-      {!ready ? null : (
-        <>
-          {sessionId ? (
-            <p data-testid="paid-intro">Thank you for your purchase. Enter the name you are considering and we will build its report.</p>
-          ) : (
-            <div data-testid="email-intro" style={{ padding: '1rem', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
-              <p style={{ marginTop: 0 }}>
-                <strong>Already paid?</strong> After checkout you should land on this page with your purchase attached. If you paid
-                earlier, or closed the page, find your report with the email you entered at checkout and the last 4 digits of the
-                card you paid with.
-              </p>
-              <p style={{ marginBottom: 0 }}>
-                Haven&rsquo;t bought a report? <a href="/" style={{ color: '#4f46e5' }}>See what it includes</a>.
-              </p>
-            </div>
-          )}
-
-          <form onSubmit={submit} className="no-print" style={{ marginTop: '1rem' }} aria-label="Report details">
-            {!sessionId && (
+    <>
+      <div className="no-print"><SiteHeader /></div>
+      <main id="main-content" className="wrap">
+        <section className="sec" aria-labelledby="success-title" style={{ borderBottom: 0 }}>
+          <div>
+            <p className="label">Premium Name Report</p>
+            <h2 id="success-title" style={{ fontSize: '44px' }}>Your Premium Name Report</h2>
+          </div>
+          <div>
+            {!ready ? (
+              <div aria-hidden="true" className="state">Loading your purchase…</div>
+            ) : (
               <>
-                <label style={label}>
-                  Checkout email
-                  <input style={field} type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </label>
-                <label style={label}>
-                  Last 4 digits of the card you paid with
-                  <input style={{ ...field, maxWidth: '120px' }} inputMode="numeric" pattern="[0-9]{4}" maxLength={4} required value={last4} onChange={(e) => setLast4(e.target.value.replace(/\D/g, ''))} />
-                </label>
+                {sessionId ? (
+                  <p data-testid="paid-intro" className="lead" style={{ marginBottom: '28px' }}>
+                    Thank you for your purchase. Enter the name you are considering and we will build its report.
+                  </p>
+                ) : (
+                  <div data-testid="email-intro" className="note">
+                    <p>
+                      <strong>Already paid?</strong> After checkout you should land on this page with your purchase attached. If you paid
+                      earlier, or closed the page, find your report with the email you entered at checkout and the last 4 digits of the
+                      card you paid with.
+                    </p>
+                    <p style={{ marginBottom: 0 }}>
+                      Haven&rsquo;t bought a report? <a href="/">See what it includes</a>.
+                    </p>
+                  </div>
+                )}
+
+                <form onSubmit={submit} className="no-print" aria-label="Report details">
+                  {!sessionId && (
+                    <div className="grid2">
+                      <label className="field">
+                        <span>Checkout email</span>
+                        <input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                      </label>
+                      <label className="field">
+                        <span>Last 4 digits of the card you paid with</span>
+                        <input className="w-sm" inputMode="numeric" pattern="[0-9]{4}" maxLength={4} required value={last4} onChange={(e) => setLast4(e.target.value.replace(/\D/g, ''))} />
+                      </label>
+                    </div>
+                  )}
+                  <div className="grid2">
+                    <label className="field">
+                      <span>First name <span className="hint">(the name you are considering)</span></span>
+                      <input required maxLength={40} value={name} onChange={(e) => setName(e.target.value)} />
+                    </label>
+                    <label className="field">
+                      <span>Surname <span className="hint">(optional, adds full-name numerology and initials)</span></span>
+                      <input maxLength={40} value={surname} onChange={(e) => setSurname(e.target.value)} />
+                    </label>
+                  </div>
+                  <label className="field">
+                    <span>Siblings&rsquo; names <span className="hint">(optional, comma separated)</span></span>
+                    <input maxLength={250} value={siblings} onChange={(e) => setSiblings(e.target.value)} />
+                  </label>
+                  <fieldset>
+                    <legend className="legend">Name ideas filters <span className="hint">(optional)</span></legend>
+                    <div className="grid3">
+                      <label className="field">
+                        <span>For</span>
+                        <select value={sex} onChange={(e) => setSex(e.target.value)}>
+                          <option value="">Girls and boys</option>
+                          <option value="F">Girls</option>
+                          <option value="M">Boys</option>
+                        </select>
+                      </label>
+                      <label className="field">
+                        <span>Starting with</span>
+                        <input maxLength={10} value={startsWith} onChange={(e) => setStartsWith(e.target.value)} />
+                      </label>
+                      <label className="field">
+                        <span>Origin <span className="hint">(our curated names only)</span></span>
+                        <select value={origin} onChange={(e) => setOrigin(e.target.value)}>
+                          <option value="">Any</option>
+                          {CURATED_ORIGINS.map((o) => (
+                            <option key={o} value={o}>{o}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  </fieldset>
+                  <button type="submit" className="btn" disabled={busy} aria-busy={busy}>
+                    {busy ? 'Building your report…' : report ? 'Build another report' : 'Get my report'}
+                  </button>
+                </form>
+
+                {error && (
+                  <p role="alert" data-testid="report-error" className="alert">
+                    {error}
+                  </p>
+                )}
               </>
             )}
-            <label style={label}>
-              First name <span style={hint}>(the name you are considering)</span>
-              <input style={field} required maxLength={40} value={name} onChange={(e) => setName(e.target.value)} />
-            </label>
-            <label style={label}>
-              Surname <span style={hint}>(optional, adds full-name numerology and initials)</span>
-              <input style={field} maxLength={40} value={surname} onChange={(e) => setSurname(e.target.value)} />
-            </label>
-            <label style={label}>
-              Siblings&rsquo; names <span style={hint}>(optional, comma separated)</span>
-              <input style={field} maxLength={250} value={siblings} onChange={(e) => setSiblings(e.target.value)} />
-            </label>
-            <fieldset style={{ border: 'none', padding: 0, marginTop: '0.75rem' }}>
-              <legend style={{ fontWeight: 600 }}>Name ideas filters <span style={hint}>(optional)</span></legend>
-              <label style={label}>
-                For
-                <select style={field} value={sex} onChange={(e) => setSex(e.target.value)}>
-                  <option value="">Girls and boys</option>
-                  <option value="F">Girls</option>
-                  <option value="M">Boys</option>
-                </select>
-              </label>
-              <label style={label}>
-                Starting with
-                <input style={{ ...field, maxWidth: '160px' }} maxLength={10} value={startsWith} onChange={(e) => setStartsWith(e.target.value)} />
-              </label>
-              <label style={label}>
-                Origin <span style={hint}>(our curated names only)</span>
-                <select style={field} value={origin} onChange={(e) => setOrigin(e.target.value)}>
-                  <option value="">Any</option>
-                  {CURATED_ORIGINS.map((o) => (
-                    <option key={o} value={o}>{o}</option>
-                  ))}
-                </select>
-              </label>
-            </fieldset>
-            <button type="submit" style={{ ...btn, marginTop: '1rem' }} disabled={busy}>
-              {busy ? 'Building your report…' : report ? 'Build another report' : 'Get my report'}
-            </button>
-          </form>
+          </div>
+        </section>
 
-          {error && (
-            <p role="alert" data-testid="report-error" style={{ color: '#b91c1c', marginTop: '1rem' }}>
-              {error}
-            </p>
-          )}
-
-          {report && (
-            <div style={{ marginTop: '2rem' }}>
-              <div className="no-print" style={{ marginBottom: '1rem' }}>
-                <button type="button" style={btn2} onClick={download}>Download as text</button>
-                <button type="button" style={btn2} onClick={() => window.print()}>Print</button>
-                {usage && <p style={hint}>{usage}</p>}
-              </div>
-              <NameReportView report={report} />
+        {ready && report && (
+          <div>
+            <div className="toolbar no-print">
+              <button type="button" className="btn ghost" onClick={download}>Download as text</button>
+              <button type="button" className="btn ghost" onClick={() => window.print()}>Print</button>
+              {usage && <span className="mute small">{usage}</span>}
             </div>
-          )}
-        </>
-      )}
+            <NameReportView report={report} />
+          </div>
+        )}
 
-      <style dangerouslySetInnerHTML={{ __html: '@media print{.no-print,.skip-link{display:none!important}}' }} />
-      <p style={{ marginTop: '2rem', color: '#555', fontSize: '0.9rem' }}>
-        For reflection and entertainment; not professional advice.
-      </p>
-      <a href="/" className="no-print" style={{ display: 'inline-block', marginTop: '1rem', color: '#635bff' }}>
-        Return Home
-      </a>
-    </main>
+        <p className="mute small" style={{ marginTop: '40px' }}>For reflection and entertainment; not professional advice.</p>
+        <a href="/" className="no-print">Return Home</a>
+      </main>
+      <div className="no-print"><SiteFooter /></div>
+    </>
   );
 }

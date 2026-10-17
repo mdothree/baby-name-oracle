@@ -16,20 +16,7 @@ export default function PayButton({
   };
 
   return (
-    <button
-      onClick={handleClick}
-      style={{
-        backgroundColor: '#635bff',
-        color: 'white',
-        border: 'none',
-        padding: '12px 24px',
-        borderRadius: '4px',
-        fontSize: '16px',
-        fontWeight: '600',
-        cursor: 'pointer',
-        marginTop: '1rem'
-      }}
-    >
+    <button type="button" className="btn" onClick={handleClick}>
       {label}
     </button>
   );

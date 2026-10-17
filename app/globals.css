@@ -1,0 +1,149 @@
+/* names.mdo3d.com in the MDO3 family: the previous mdo3d.com design language (DM Serif Display, DM Sans,
+   JetBrains Mono labels, #f8f8fc paper, #0a0a0f ink, #e2e2ec hairlines, square M3 mark), with Baby Name Oracle's
+   ORIGINAL accent #635bff (Principal 10-16: "original colors of baby name oracle may have been better" and
+   "names and leads mdo3 should be consistent with the rest of mdo3"). Radius <= 4px, no pills, full borders only. */
+/* Fonts are self-hosted via next/font in app/layout.tsx (the site CSP allows font-src 'self' only). */
+
+:root{
+  --bg:#F8F8FC; --fg:#0A0A0F; --mute:#5A5A72; --rule:#E2E2EC; --rule-strong:#C8C8D8; --surface:#FFFFFF; --accent:#635BFF; --link:#4F46E5; --accent-soft:#EFEEFF; --on-accent:#FFFFFF; --err:#A82040; --dark:#0A0A0F;
+  --display:var(--f-display),"DM Serif Display",Georgia,serif; --body:var(--f-body),"DM Sans",system-ui,sans-serif; --ui:var(--f-body),"DM Sans",system-ui,sans-serif; --mono:var(--f-mono),"JetBrains Mono",ui-monospace,monospace;
+  --r-sm:3px; --r-md:4px; --gutter:48px; --maxw:1120px;
+}
+@media (max-width:720px){:root{--gutter:16px}}
+
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+/* Text links use the deeper shade of the accent for AA on paper (#635bff is 4.4:1; window-fold fix 535b062). */
+a{color:var(--link);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+p{margin:0 0 .8em}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.label{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.mute{color:var(--mute)}
+.small{font-size:15px}
+
+/* header + footer (MDO3 family: square mono mark, quiet sentence-case nav) */
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:60px;border-bottom:1px solid var(--rule)}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--ui);font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--fg);text-decoration:none}
+.logo-mark{width:28px;height:28px;border-radius:var(--r-md);background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:-.03em}
+.hdr nav{display:flex;gap:4px;font-family:var(--ui);font-size:13px;font-weight:500}
+.hdr nav a{color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:var(--r-sm)}
+.hdr nav a:hover{background:#EEEEF4}
+.hdr nav a:hover{color:var(--accent)}
+.ftr{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding:28px 0 48px;margin-top:64px;border-top:1px solid var(--rule);font-family:var(--ui);font-size:13px;color:var(--mute)}
+.ftr a{color:var(--mute)} .ftr a:hover{color:var(--fg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:end;padding:88px 0 56px;border-bottom:1px solid var(--rule)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:64px;line-height:1.06;letter-spacing:-.02em;margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
+/* No italics anywhere (Principal 10-16): emphasis by colour or weight. */
+em,i,cite,dfn,var,address,blockquote,q{font-style:normal}
+.lead{font-size:21px;line-height:1.5;max-width:30em;margin:0}
+.specimen{margin:0;border:1px solid var(--rule);border-radius:var(--r-md);background:var(--surface);padding:28px 28px 22px}
+.specimen .nm{font-family:var(--display);font-size:52px;line-height:1;font-weight:400;margin:10px 0 6px}
+.specimen dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+.specimen dt{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding-top:4px}
+.specimen dd{margin:0}
+.specimen .cap{font-family:var(--ui);font-size:12px;color:var(--mute);margin-top:16px}
+
+/* sections */
+.sec{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;padding:56px 0;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.sec h2{font-family:var(--display);font-weight:400;font-size:38px;line-height:1.08;letter-spacing:-.01em;margin:10px 0 0}
+
+/* form */
+.field{display:flex;flex-direction:column;gap:6px;margin:0 0 18px}
+.field>span:first-child,.legend{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.hint{font-family:var(--body);font-size:15px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--mute)}
+input,select{font:inherit;font-size:16px;min-height:48px;width:100%;padding:10px 14px;background:var(--surface);color:var(--fg);border:1px solid var(--rule);border-radius:var(--r-md)}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+input::placeholder{color:#888888}
+.searchrow{display:flex;gap:10px;max-width:560px}
+.searchrow input{flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;align-items:end}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 20px;align-items:end}
+fieldset{border:1px solid var(--rule);border-radius:var(--r-md);padding:18px 20px 2px;margin:8px 0 20px}
+fieldset legend{padding:0 8px}
+.w-sm{max-width:160px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;font-family:var(--ui);font-size:15px;font-weight:600;border-radius:var(--r-md);background:var(--accent);color:var(--on-accent);border:1px solid var(--accent);cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.55;cursor:progress}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--rule-strong)}
+.btn.dark{background:var(--dark);border-color:var(--dark);color:#FFFFFF}
+.btn.ghost:hover{border-color:var(--fg)}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* results */
+.results{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid var(--rule)}
+.results li{display:grid;grid-template-columns:minmax(140px,220px) 70px 1fr;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
+.results .nm{font-family:var(--display);font-size:26px;font-weight:400;line-height:1.1}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule);border-radius:var(--r-sm);color:var(--mute)}
+.count{font-family:var(--ui);font-size:13px;color:var(--mute);margin-top:22px}
+.state{border:1px solid var(--rule);border-radius:var(--r-md);padding:20px 22px;margin-top:24px;color:var(--mute)}
+
+/* offer */
+.offer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;border:2px solid var(--accent);border-radius:var(--r-md);background:var(--surface)}
+.offer .what{padding:32px}
+.offer .buy{padding:32px;border-left:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.offer ol{list-style:none;padding:0;margin:16px 0 0;counter-reset:i}
+.offer ol li{counter-increment:i;display:grid;grid-template-columns:36px 1fr;padding:10px 0;border-top:1px solid var(--rule)}
+.offer ol li::before{content:counter(i,decimal-leading-zero);font-family:var(--mono);font-weight:500;color:var(--accent);font-size:13px;padding-top:3px}
+.offer .buy .covers{font-size:16px}
+
+/* intro boxes + alerts */
+.note{border:1px solid var(--rule);border-radius:var(--r-md);background:var(--surface);padding:20px 22px;margin:0 0 28px}
+.alert{border:1px solid var(--err);border-radius:var(--r-md);color:var(--fg);padding:12px 16px;margin-top:16px;font-family:var(--ui);font-size:15px}
+
+/* report: an editorial reading */
+.report{margin-top:56px;border-top:1px solid var(--accent);padding-top:40px}
+.report .rname{font-family:var(--display);font-weight:400;font-size:64px;line-height:1;letter-spacing:-.02em;margin:10px 0 12px}
+.report .meta{font-family:var(--ui);font-size:14px;color:var(--mute);letter-spacing:.02em}
+.rsec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
+.rsec:first-of-type{margin-top:28px}
+.rsec h3{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:6px 0 0}
+.rsec ul,.rsec ol{margin:0 0 10px;padding-left:1.2em}
+.rsec li{margin:4px 0}
+.rsec li::marker{color:var(--mute)}
+.big{font-family:var(--display);font-size:28px;line-height:1.25;margin:0 0 6px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);border-radius:var(--r-md);margin:10px 0 18px}
+.nums>div{padding:14px 16px}
+.nums>div+div{border-left:1px solid var(--rule)}
+.nums .n{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;color:var(--accent)}
+.nums .k{font-size:15px;color:var(--mute)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:28px}
+
+.center{text-align:center}
+.cancel{padding:120px 0 40px;max-width:560px;margin:0 auto;text-align:center}
+.cancel h1{font-family:var(--display);font-weight:400;font-size:56px;line-height:1.05;margin:12px 0 14px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:48px 0 40px}
+  .hero h1{font-size:46px}
+  .sec{grid-template-columns:1fr;gap:12px;padding:40px 0}
+  .sec h2{font-size:30px}
+  .offer{grid-template-columns:1fr}
+  .offer .buy{border-left:0;border-top:1px solid var(--rule)}
+  .offer .what,.offer .buy{padding:22px}
+  .rsec{grid-template-columns:1fr;gap:10px}
+  .report .rname{font-size:48px}
+}
+@media (max-width:560px){
+  .hdr nav a.opt{display:none}
+  .searchrow{flex-direction:column}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .results li{grid-template-columns:1fr auto;gap:4px 12px}
+  .results li .m{grid-column:1/-1}
+  .nums{grid-template-columns:1fr}
+  .nums>div+div{border-left:0;border-top:1px solid var(--rule)}
+  .specimen .nm{font-size:44px}
+}
+@media print{
+  :root{--bg:#fff;--fg:#000;--mute:#555;--rule:#ccc;--surface:#fff;--accent:#635BFF}
+  .hdr,.ftr,.no-print,.skip-link{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
