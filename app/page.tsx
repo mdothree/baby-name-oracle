@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import PayButton from './components/PayButton';
 import { SiteHeader, SiteFooter } from './components/SiteChrome';
+import { NAMES_PAYMENT_LINK, NAMES_PRICE_LABEL } from './lib/checkout';
 import { LAST_SEARCH_KEY } from './lib/namesApi';
 
 type BabyName = {
@@ -178,9 +179,8 @@ export default function Home() {
               </p>
               <div>
                 <PayButton
-                  paymentLink="https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802"
-                  priceId="price_babynames_basic"
-                  label="Get Premium Names - $2.99"
+                  paymentLink={NAMES_PAYMENT_LINK}
+                  label={`Get Premium Names - ${NAMES_PRICE_LABEL}`}
                 />
                 <p className="mute small" style={{ marginTop: '12px' }}>Secure checkout by Stripe.</p>
               </div>

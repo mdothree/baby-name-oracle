@@ -1,15 +1,15 @@
 'use client';
 
+import { NAMES_PAYMENT_LINK, NAMES_PRICE_LABEL } from '../lib/checkout';
+
 interface PayButtonProps {
   paymentLink?: string;
-  priceId?: string;
   label?: string;
 }
 
 export default function PayButton({
-  paymentLink = 'https://buy.stripe.com/eVqeVc6l20HL1hW97Z8k802',
-  priceId,
-  label = 'Get Premium - $2.99'
+  paymentLink = NAMES_PAYMENT_LINK,
+  label = `Get Premium - ${NAMES_PRICE_LABEL}`
 }: PayButtonProps) {
   const handleClick = () => {
     window.location.href = paymentLink;
