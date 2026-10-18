@@ -1,0 +1,29 @@
+{
+  "allow": [
+    {
+      "file": "app/components/PayButton.tsx",
+      "re": "\\$2\\.99",
+      "why": "bound to the live $2.99 Payment Link; $3 label staged on deploy/brand-price-2026-10-17 563affd (needs the Principal's new Payment Link)"
+    },
+    {
+      "file": "app/page.tsx",
+      "re": "\\$2\\.99",
+      "why": "bound to the live $2.99 Payment Link; $3 label staged on deploy/brand-price-2026-10-17 563affd (needs the Principal's new Payment Link)"
+    },
+    {
+      "file": "public/index.html",
+      "re": "buy\\.stripe\\.com/eVqeVc6l",
+      "why": "bound to the live $2.99 Payment Link; $3 label staged on deploy/brand-price-2026-10-17 563affd (needs the Principal's new Payment Link)"
+    },
+    {
+      "file": "app/page.tsx",
+      "re": "Free woman",
+      "why": "name meaning (Charlotte), not an offer"
+    },
+    {
+      "file": "public/js/app.js",
+      "re": "Free woman",
+      "why": "name meaning (Charlotte), not an offer"
+    }
+  ]
+}
