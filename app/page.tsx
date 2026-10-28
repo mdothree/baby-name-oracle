@@ -180,7 +180,7 @@ export default function Home() {
               <div>
                 <PayButton
                   paymentLink={NAMES_PAYMENT_LINK}
-                  label={`Get Premium Names - ${NAMES_PRICE_LABEL}`}
+                  label={"Get Premium Names - " + NAMES_PRICE_LABEL}
                 />
                 <p className="mute small" style={{ marginTop: '12px' }}>Secure checkout by Stripe.</p>
               </div>

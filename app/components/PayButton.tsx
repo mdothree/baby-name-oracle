@@ -9,7 +9,7 @@ interface PayButtonProps {
 
 export default function PayButton({
   paymentLink = NAMES_PAYMENT_LINK,
-  label = `Get Premium - ${NAMES_PRICE_LABEL}`
+  label = "Get Premium - " + NAMES_PRICE_LABEL
 }: PayButtonProps) {
   const handleClick = () => {
     window.location.href = paymentLink;
